@@ -62,6 +62,7 @@ function drawLine(x0, y0, x1, y1, index, h){
   pg.endShape();
 }
 
-function mousePressed(){
-  save("test.jpg");
+function keyPressed(){
+  if(key == 's')
+    pg.save("noisy-lines.jpg");
 }
