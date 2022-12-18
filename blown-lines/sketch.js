@@ -17,14 +17,14 @@ function setup() {
   y1 = y0;
   count = round(((windowHeight - 14 - paddingY) - y0) / divs);
   background(220);
+  noFill();
 }
 
 function draw() {
   //background(220);
 
-  stroke(60, 4);
+  stroke(0, 2);
   strokeWeight(1);
-  noFill();
 
   drawLines(x0, y0, x1, y1, count, divs, noiseHeigth);
 
@@ -43,9 +43,10 @@ function drawLine(x0, y0, x1, y1, index, h){
 
   beginShape();
 
-  for(let i = x0; i < x1; i+=30){
-    let r = i / 5;
-    let d = (i / 500)*(i/500)*(index/100);
+  for(let i = x0; i < x1; i+=25){
+    let r = i / 6;
+    //let d = (i / 500)*(i/500)*(index/100);
+    let d = sin(r + index/40) * cos(r + index/5);
     let y = y0 + (noise(r, t) - 0.5) * (h * d);
     curveVertex(i + random(-1,1), y);
   }
